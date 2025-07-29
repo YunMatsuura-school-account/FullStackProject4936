@@ -43,7 +43,7 @@ const validationResponder = (req, res, next) => {
 };
 
 router.post(
-  "/signin",
+  "/",
   signInValidations,
   validationResponder,
   checkEmailExistance,
@@ -52,6 +52,9 @@ router.post(
 
     try {
       const doesMatch = await bcrypt.compare(password, req.user.password);
+      console.log(`password: ${password}`);
+      console.log(`req.user.password: ${req.user.password}`)
+
       if (!doesMatch) {
         const error = new Error("Password does not match.");
         error.status = 401;

@@ -1,9 +1,8 @@
 [
-  {},
   {
     "firstName": "Yuichi",
     "lastName": "Matsuura",
     "email": "matsuyui@hotmail.co.jp",
-    "password": "123456"
+    "password": "$2b$10$OKOUv93oInKcWtqLzeXTs.kX878JXaHuf4F1bSJ.ikQeBMv4UZFMC"
   }
 ]

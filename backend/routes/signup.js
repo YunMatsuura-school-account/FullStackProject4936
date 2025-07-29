@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 const { getAllUsers, saveUser } = require("../utilities/userStorage");
 const { body, validationResult } = require("express-validator");
 
@@ -15,6 +16,20 @@ const signUpValidations = [
     .custom((value, { req }) => value === req.body.password)
     .withMessage("Passwords do not match"),
 ];
+
+const hashPassword = async (req, res, next) => {
+  let currentPassword = req.body.password;
+
+  try {
+    const hashPassword = await bcrypt.hash(currentPassword, 10);
+    req.body.password = hashPassword;
+    next();
+  } catch (error) {
+    console.log(error.message);
+    error.status = 400;
+    next(error);
+  }
+};
 
 // Handle Express Validations
 const validationResponder = (req, res, next) => {
@@ -50,6 +65,7 @@ router.post(
   signUpValidations,
   validationResponder,
   checkEmailExistance,
+  hashPassword,
   (req, res) => {
     const { firstName, lastName, email, password } = req.body;
     let user = { firstName, lastName, email, password };
