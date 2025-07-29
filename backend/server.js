@@ -7,6 +7,7 @@ const cors = require("cors"); //enable communication with Front end
 const allUsers = require("./routes/allusers");
 const signUp = require("./routes/signup");
 const signIn = require("./routes/signin");
+const home = require("./routes/home");
 
 //Middleware for cors
 app.use(
@@ -19,6 +20,7 @@ app.use(express.json());
 app.get("/allusers", allUsers);
 app.use("/signup", signUp);
 app.use("/signin", signIn);
+app.use("/home", home);
 
 // Global Error Handler Middleware
 app.use((err, req, res, next) => {
