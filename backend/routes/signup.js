@@ -73,7 +73,14 @@ router.post(
     console.log(user);
     saveUser(user);
 
-    res.status(200).json({success: true, message: "User registered successfully" });
+    res.status(200).json({
+      success: true,
+      message: "User registered successfully",
+      user: {
+        firstName: firstName,
+        lastName: lastName,
+      },
+    });
   }
 );
 

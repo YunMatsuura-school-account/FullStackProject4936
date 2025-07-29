@@ -4,5 +4,17 @@
     "lastName": "Matsuura",
     "email": "matsuyui@hotmail.co.jp",
     "password": "$2b$10$OKOUv93oInKcWtqLzeXTs.kX878JXaHuf4F1bSJ.ikQeBMv4UZFMC"
+  },
+  {
+    "firstName": "Abc",
+    "lastName": "Def",
+    "email": "abc@gmail.com",
+    "password": "$2b$10$tN.bZ8XKdzF39xrudpLDP.4S/rE8xHyCYhCdmekguUSvyTEJm1/3W"
+  },
+  {
+    "firstName": "Jin",
+    "lastName": "Sakai",
+    "email": "sjin@gmail.com",
+    "password": "$2b$10$J1o1ZqeQNJWahYBqgFpgcejf6Wzqs6CLca78Q6dDiRgFjA3nxvzES"
   }
 ]

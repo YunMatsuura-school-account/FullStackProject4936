@@ -48,7 +48,7 @@ router.post(
   validationResponder,
   checkEmailExistance,
   async (req, res, next) => {
-    const { email, password } = req.body; //req.body is object sent by clients
+    const { email, password, firstName, lastName } = req.body; //req.body is object sent by clients
 
     try {
       const doesMatch = await bcrypt.compare(password, req.user.password);
@@ -64,6 +64,10 @@ router.post(
       res.status(200).json({
         success: true,
         message: "Login successfully.",
+        user: {
+          firstName: req.user.firstName,
+          lastName: req.user.lastName,
+        }
       });
     } catch(error) {
         error.status = 500;
